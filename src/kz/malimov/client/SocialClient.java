@@ -17,10 +17,15 @@ public class SocialClient {
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             Scanner sc = new Scanner(System.in);
+            String input = "";
             while (true) {
                 String msg = getMessage();
+                if (msg.equals("Quiting the system")) {
+                    break;
+                }
                 if (msg.charAt(msg.length()-1) == '-') {
-                    sendMessage(sc.nextLine());
+                    input = sc.nextLine();
+                    sendMessage(input);
                 }
             }
         } catch (Exception e) {
