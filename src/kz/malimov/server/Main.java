@@ -9,6 +9,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
+        SocialServer server = new SocialServer();
+        server.start(5555);
     }
 }
